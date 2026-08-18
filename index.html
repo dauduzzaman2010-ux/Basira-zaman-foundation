@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Mobile Responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>বসিরা জামান ফাউন্ডেশন</title>
+
+  <style>
+    /* =========================
+       BASIC SETTINGS
+    ========================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, "Noto Sans Bengali", sans-serif;
+      background: #f7faf8;
+      color: #18352a;
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    header {
+      background: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    }
+
+    .navbar {
+      min-height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background: #126b45;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .logo-text h2 {
+      font-size: 20px;
+      color: #126b45;
+    }
+
+    .logo-text span {
+      font-size: 12px;
+      color: #777;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #234238;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #c79a35;
+    }
+
+    .menu-btn {
+      display: none;
+      border: none;
+      background: #126b45;
+      color: white;
+      font-size: 25px;
+      padding: 5px 12px;
+      border-radius: 7px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(10, 91, 57, 0.97),
+          rgba(18, 107, 69, 0.90)
+        );
+      color: white;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      border: 80px solid rgba(255,255,255,0.05);
+      border-radius: 50%;
+      right: -150px;
+      top: -100px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      text-align: center;
+      margin: auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 18px;
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 30px;
+      margin-bottom: 22px;
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 65px);
+      line-height: 1.2;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: #f2d38a;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: auto;
+      color: #eef8f2;
+    }
+
+    .hero-buttons {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 25px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #f2d38a;
+      color: #18352a;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      background: #ffffff;
+    }
+
+    .btn-outline {
+      border: 1px solid white;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: #126b45;
+    }
+
+    /* =========================
+       SECTION
+    ========================== */
+
+    section {
+      padding: 85px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title span {
+      color: #c79a35;
+      font-weight: bold;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      margin-top: 8px;
+      color: #126b45;
+    }
+
+    .section-title p {
+      max-width: 650px;
+      margin: 10px auto 0;
+      color: #66756e;
+    }
+
+    /* =========================
+       SERVICE CARDS
+    ========================== */
+
+    .services {
+      background: white;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      padding: 35px 25px;
+      background: #f8fbf9;
+      border-radius: 15px;
+      text-align: center;
+      border: 1px solid #e4eee8;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(18,107,69,0.12);
+    }
+
+    .card-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: #e3f1e9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+    }
+
+    .card h3 {
+      color: #126b45;
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+
+    .card p {
+      color: #68756f;
+    }
+
+    /* =========================
+       ABOUT
+    ========================== */
+
+    .about {
+      background: #f4f8f5;
+    }
+
+    .about-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      color: #126b45;
+      font-size: 38px;
+      margin-bottom: 18px;
+    }
+
+    .about-text p {
+      color: #66756e;
+      margin-bottom: 15px;
+    }
+
+    .mission-box {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      border-left: 5px solid #c79a35;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    }
+
+    .mission-box h3 {
+      color: #126b45;
+      margin-bottom: 10px;
+    }
+
+    /* =========================
+       STATS
+    ========================== */
+
+    .stats {
+      background: #126b45;
+      color: white;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      text-align: center;
+    }
+
+    .stat h2 {
+      font-size: 40px;
+      color: #f2d38a;
+    }
+
+    .stat p {
+      color: #e2f1e9;
+    }
+
+    /* =========================
+       CTA
+    ========================== */
+
+    .cta {
+      background: linear-gradient(135deg, #eaf5ee, #fff8e8);
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 35px;
+      color: #126b45;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      max-width: 700px;
+      margin: auto;
+      color: #65736c;
+    }
+
+    .cta .btn {
+      margin-top: 25px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      background: #102c22;
+      color: white;
+      padding: 55px 0 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 35px;
+    }
+
+    footer h3 {
+      color: #f2d38a;
+      margin-bottom: 15px;
+    }
+
+    footer p {
+      color: #c6d5ce;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 8px;
+      color: #c6d5ce;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      text-align: center;
+      color: #aebeb6;
+      font-size: 14px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 800px) {
+
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        gap: 0;
+        display: none;
+        padding: 15px 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links li {
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 12px;
+      }
+
+      .hero {
+        min-height: 580px;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-box {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .logo-text h2 {
+        font-size: 16px;
+      }
+
+      .logo-icon {
+        width: 42px;
+        height: 42px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .section-title h2 {
+        font-size: 29px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header>
+    <div class="container navbar">
+
+      <a href="#home" class="logo">
+        <div class="logo-icon">🌿</div>
+
+        <div class="logo-text">
+          <h2>বসিরা জামান ফাউন্ডেশন</h2>
+          <span>পারিবারিক কল্যাণ উদ্যোগ</span>
+        </div>
+      </a>
+
+      <button class="menu-btn" id="menuBtn">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">হোম</a></li>
+        <li><a href="#about">আমাদের সম্পর্কে</a></li>
+        <li><a href="#activities">কার্যক্রম</a></li>
+        <li><a href="#support">সহায়তা</a></li>
+        <li><a href="#contact">যোগাযোগ</a></li>
+      </ul>
+
+    </div>
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <main>
+
+    <section class="hero" id="home">
+
+      <div class="container">
+
+        <div class="hero-content">
+
+          <div class="hero-badge">
+            🌿 আমাদের পরিবার • আমাদের দায়িত্ব
+          </div>
+
+          <h1>
+            আত্মীয়তার বন্ধনে,<br>
+            <span>পারস্পরিক সহযোগিতায়,</span><br>
+            সুন্দর ভবিষ্যতের পথে।
+          </h1>
+
+          <p>
+            বসিরা জামান ফাউন্ডেশন আমাদের পরিবারের সদস্যদের
+            শিক্ষা, চিকিৎসা ও প্রয়োজনীয় কল্যাণে
+            পারস্পরিক সহযোগিতার একটি উদ্যোগ।
+          </p>
+
+          <div class="hero-buttons">
+
+            <a href="#activities" class="btn btn-primary">
+              আমাদের কার্যক্রম
+            </a>
+
+            <a href="#about" class="btn btn-outline">
+              আমাদের সম্পর্কে
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ACTIVITIES
+    ========================== -->
+
+    <section class="services" id="activities">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <span>আমাদের উদ্যোগ</span>
+
+          <h2>আমরা যেভাবে পাশে থাকি</h2>
+
+          <p>
+            পরিবারের সদস্যদের প্রয়োজন অনুযায়ী
+            শিক্ষা, চিকিৎসা ও ভবিষ্যৎ গঠনে সহযোগিতা করা।
+          </p>
+
+        </div>
+
+
+        <div class="card-grid">
+
+          <div class="card">
+
+            <div class="card-icon">🎓</div>
+
+            <h3>শিক্ষা সহায়তা</h3>
+
+            <p>
+              পড়াশোনায় আগ্রহী পরিবারের সদস্যদের
+              শিক্ষা খরচ ও প্রয়োজনীয় উপকরণে সহায়তা।
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <div class="card-icon">🏥</div>
+
+            <h3>চিকিৎসা সহায়তা</h3>
+
+            <p>
+              প্রয়োজনের সময়ে পরিবারের সদস্যদের
+              চিকিৎসা ব্যয়ে সহযোগিতা করা।
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <div class="card-icon">🤝</div>
+
+            <h3>পারিবারিক সহযোগিতা</h3>
+
+            <p>
+              পরিবারের সদস্যদের প্রয়োজন ও সংকটে
+              পারস্পরিক সহযোগিতার মাধ্যমে পাশে থাকা।
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section class="about" id="about">
+
+      <div class="container">
+
+        <div class="about-box">
+
+          <div class="about-text">
+
+            <span style="color:#c79a35;font-weight:bold;">
+              আমাদের সম্পর্কে
+            </span>
+
+            <h2>
+              পরিবারের জন্য একটি সুন্দর উদ্যোগ
+            </h2>
+
+            <p>
+              বসিরা জামান ফাউন্ডেশন হলো পরিবারের সদস্যদের
+              পারস্পরিক সহযোগিতা ও কল্যাণের একটি উদ্যোগ।
+            </p>
+
+            <p>
+              আমাদের উদ্দেশ্য হলো পরিবারের কোনো সদস্য যেন
+              আর্থিক সমস্যার কারণে শিক্ষা, প্রয়োজনীয় চিকিৎসা
+              বা নিজের সম্ভাবনাময় ভবিষ্যৎ থেকে পিছিয়ে না পড়ে।
+            </p>
+
+          </div>
+
+
+          <div class="mission-box">
+
+            <h3>🎯 আমাদের লক্ষ্য</h3>
+
+            <p>
+              শিক্ষা ও সহযোগিতার মাধ্যমে পরিবারের সদস্যদের
+              নিজেদের যোগ্যতা অনুযায়ী এগিয়ে যাওয়ার সুযোগ তৈরি করা
+              এবং প্রয়োজনের সময়ে একে অপরের পাশে দাঁড়ানো।
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         STATS
+    ========================== -->
+
+    <section class="stats">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <span style="color:#f2d38a;">
+            আমাদের অগ্রগতি
+          </span>
+
+          <h2 style="color:white;">
+            একসাথে এগিয়ে চলা
+          </h2>
+
+        </div>
+
+
+        <div class="stats-grid">
+
+          <div class="stat">
+            <h2 class="counter" data-target="0">0</h2>
+            <p>পরিবারের সদস্য</p>
+          </div>
+
+          <div class="stat">
+            <h2 class="counter" data-target="0">0</h2>
+            <p>শিক্ষা সহায়তা</p>
+          </div>
+
+          <div class="stat">
+            <h2 class="counter" data-target="0">0</h2>
+            <p>চিকিৎসা সহায়তা</p>
+          </div>
+
+          <div class="stat">
+            <h2 class="counter" data-target="0">0</h2>
+            <p>চলমান উদ্যোগ</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SUPPORT
+    ========================== -->
+
+    <section class="cta" id="support">
+
+      <div class="container">
+
+        <h2>
+          পরিবারের ভবিষ্যতের জন্য একসাথে
+        </h2>
+
+        <p>
+          আপনার সহযোগিতা পরিবারের একজন সদস্যের
+          শিক্ষা বা প্রয়োজনের সময়ে গুরুত্বপূর্ণ ভূমিকা
+          রাখতে পারে।
+        </p>
+
+        <a href="#contact" class="btn btn-primary">
+          যোগাযোগ করুন
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer id="contact">
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+
+          <h3>বসিরা জামান ফাউন্ডেশন</h3>
+
+          <p>
+            আত্মীয়তার বন্ধনে, পারস্পরিক সহযোগিতায়,
+            সুন্দর ভবিষ্যতের পথে।
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3>দ্রুত লিংক</h3>
+
+          <ul class="footer-links">
+
+            <li><a href="#home">হোম</a></li>
+
+            <li><a href="#about">
+              আমাদের সম্পর্কে
+            </a></li>
+
+            <li><a href="#activities">
+              কার্যক্রম
+            </a></li>
+
+            <li><a href="#support">
+              সহায়তা
+            </a></li>
+
+          </ul>
+
+        </div>
+
+
+        <div>
+
+          <h3>যোগাযোগ</h3>
+
+          <p>
+            📞 ফোন: আপনার নম্বর
+          </p>
+
+          <p>
+            ✉️ ইমেইল: আপনার ইমেইল
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="copyright">
+
+        © <span id="year"></span>
+        বসিরা জামান ফাউন্ডেশন —
+        সর্বস্বত্ব সংরক্ষিত।
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    // Mobile Menu
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", function () {
+
+      navLinks.classList.toggle("active");
+
+    });
+
+
+    // Menu click করলে menu বন্ধ হবে
+
+    document.querySelectorAll(".nav-links a").forEach(function(link) {
+
+      link.addEventListener("click", function() {
+
+        navLinks.classList.remove("active");
+
+      });
+
+    });
+
+
+    // Current Year
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    // Counter Animation
+
+    const counters = document.querySelectorAll(".counter");
+
+    counters.forEach(function(counter) {
+
+      const target = Number(counter.dataset.target);
+
+      let current = 0;
+
+      const increment = target / 60;
+
+      function updateCounter() {
+
+        if (current < target) {
+
+          current += increment;
+
+          counter.textContent =
+            Math.ceil(current);
+
+          requestAnimationFrame(updateCounter);
+
+        } else {
+
+          counter.textContent = target;
+
+        }
+
+      }
+
+      updateCounter();
+
+    });
+
+  </script>
+
+</body>
+</html>
